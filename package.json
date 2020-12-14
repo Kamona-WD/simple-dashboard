@@ -22,7 +22,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.4",
