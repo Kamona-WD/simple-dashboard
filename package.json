@@ -1,38 +1,64 @@
 {
   "name": "simple-dashboard",
-  "version": "1.0.0",
-  "description": "simple dashboard built with tailwindcss alpinejs",
+  "version": "0.0.1",
+  "description": "Simple dashboard built with tailwindcss",
+  "main": "index.js",
   "scripts": {
-    "serve": "cross-env NODE_ENV=development concurrently \"postcss public/tailwind.css -o public/build/tailwind.css --watch\"  \"live-server ./public --no-browser\"",
-    "development": "cross-env NODE_ENV=development postcss public/tailwind.css -o public/build/tailwind.css",
-    "production": "cross-env NODE_ENV=production postcss public/tailwind.css -o public/build/tailwind.css",
-    "start": "npm run serve"
+    "build": "webpack --config webpack.config.prod.js",
+    "lint:js": "./node_modules/.bin/eslint src/js/*.js",
+    "lint:styles": "stylelint \"src/**/*.scss\"",
+    "lint:html": "pa11y-ci ./src/**/*.html",
+    "start:dev": "webpack-dev-server --config webpack.config.dev.js",
+    "start": "webpack --config webpack.config.prod.js && http-server ./dist -o"
   },
-  "keywords": [
-    "dashboard",
-    "tailwindcss",
-    "layout"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kamona-WD/simple-dashboard.git"
+  },
   "author": {
-    "name": "Ahmed Kamel",
     "email": "ak3849909@gmail.com",
+    "name": "Ahmed Kamel",
     "url": "https://github.com/Kamona-WD"
   },
-  "license": "MIT",
-  "dependencies": {
-    "autoprefixer": "9",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
-  },
+  "license": "ISC",
   "devDependencies": {
-    "concurrently": "^5.3.0",
-    "cross-env": "^7.0.2",
-    "cssnano": "^4.1.10",
-    "live-server": "^1.2.1",
-    "postcss-cli": "^7.1.1"
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.7.4",
+    "alpinejs": "^2.7.3",
+    "autoprefixer": "9",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "cssnano": "^4.1.0",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-import": "^2.20.2",
+    "file-loader": "^5.0.2",
+    "glob": "^7.1.6",
+    "html-webpack-plugin": "^3.0.0",
+    "http-server": "^0.12.1",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "pa11y-ci": "^2.1.1",
+    "postcss": "7",
+    "postcss-loader": "^3.0.0",
+    "raw-loader": "^4.0.1",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.0.1",
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^19.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "webpack": "^4.44.0",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
   },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true,
-    "printWidth": 120
-  }
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }

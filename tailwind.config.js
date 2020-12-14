@@ -1,17 +1,11 @@
 module.exports = {
-  future: {
-    // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
-  },
-  purge: ['./public/**/*.html'],
+  purge: ['./src/**/*.html'],
+  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
   },
   variants: {
-    extend: {
-      overflow: ['hover'],
-      width: ['hover'],
-    },
+    extend: {},
   },
   plugins: [],
 }
